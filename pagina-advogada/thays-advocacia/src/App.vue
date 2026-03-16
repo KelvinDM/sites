@@ -132,7 +132,7 @@
               class="about-image image-one"
             />
             <img
-              src="https://images.unsplash.com/photo-1453723490680-d29a5624dd85?auto=format&fit=crop&q=80&w=500"
+              :src="justiceImage"
               alt="Símbolo de justiça"
               class="about-image image-two"
             />
@@ -225,13 +225,13 @@
           <span class="brand-subtitle">Advocacia Especializada</span>
         </div>
 
-        <p class="footer-oab">OAB/SP 000.000</p>
+        <p class="footer-oab">OAB/MS 000.000</p>
         <p class="footer-copy">© 2026 Dra. Thays Andrade. Todos os direitos reservados.</p>
       </div>
     </footer>
 
     <a
-      href="https://wa.me/5511987654321"
+      href="https://wa.me/5567991037665"
       target="_blank"
       rel="noopener noreferrer"
       class="whatsapp-button"
@@ -259,6 +259,7 @@ import {
   PhWhatsappLogo as WhatsappLogo,
   PhX as X
 } from '@phosphor-icons/vue'
+import justiceImage from './assets/images/Justica.jpg'
 
 const isScrolled = ref(false)
 const mobileMenuOpen = ref(false)
@@ -311,9 +312,9 @@ const services = [
 ]
 
 const contactInfo = [
-  { label: 'Telefone', value: '(11) 98765-4321', icon: Phone },
-  { label: 'E-mail', value: 'contato@thaysandrade.adv.br', icon: EnvelopeSimple },
-  { label: 'Endereço', value: 'Av. Paulista, 1000 - São Paulo/SP', icon: MapPin }
+  { label: 'Telefone', value: '(67) 991037665', icon: Phone },
+  { label: 'E-mail', value: 'advogada.thaysandrade@gmail.com', icon: EnvelopeSimple },
+  { label: 'Endereço', value: 'Av. Mato Grosso, 4700 - Centro, Campo Grande - MS, 79021-003', icon: MapPin }
 ]
 
 function handleScroll() {
@@ -327,7 +328,6 @@ function applyTheme() {
 function toggleTheme() {
   isDarkMode.value = !isDarkMode.value
   applyTheme()
-  localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light')
 }
 
 function handleSubmit() {
@@ -351,8 +351,7 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   handleScroll()
 
-  const savedTheme = localStorage.getItem('theme')
-  isDarkMode.value = savedTheme === 'dark'
+  isDarkMode.value = false
   applyTheme()
 })
 
@@ -991,105 +990,105 @@ onUnmounted(() => {
   opacity: 0;
 }
 
-:global([data-theme='dark']) body {
+:global(html[data-theme='dark'] body) {
   background: #101014;
   color: #ececf2;
 }
 
-:global([data-theme='dark']) .header {
+:global(html[data-theme='dark'] .header) {
   background: rgba(16, 16, 20, 0.88);
 }
 
-:global([data-theme='dark']) .header-scrolled {
+:global(html[data-theme='dark'] .header-scrolled) {
   background: rgba(16, 16, 20, 0.96);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
 }
 
-:global([data-theme='dark']) .brand-title,
-:global([data-theme='dark']) .hero-title,
-:global([data-theme='dark']) .section-title,
-:global([data-theme='dark']) .service-card h3,
-:global([data-theme='dark']) .button-outline {
+:global(html[data-theme='dark'] .brand-title),
+:global(html[data-theme='dark'] .hero-title),
+:global(html[data-theme='dark'] .section-title),
+:global(html[data-theme='dark'] .service-card h3),
+:global(html[data-theme='dark'] .button-outline) {
   color: #f4dce0;
 }
 
-:global([data-theme='dark']) .brand-subtitle,
-:global([data-theme='dark']) .eyebrow,
-:global([data-theme='dark']) .hero-title span,
-:global([data-theme='dark']) .contact-label,
-:global([data-theme='dark']) .contact-icon {
+:global(html[data-theme='dark'] .brand-subtitle),
+:global(html[data-theme='dark'] .eyebrow),
+:global(html[data-theme='dark'] .hero-title span),
+:global(html[data-theme='dark'] .contact-label),
+:global(html[data-theme='dark'] .contact-icon) {
   color: #d69da4;
 }
 
-:global([data-theme='dark']) .theme-toggle {
+:global(html[data-theme='dark'] .theme-toggle) {
   background: #30252a;
   color: #f1d8dc;
 }
 
-:global([data-theme='dark']) .nav-link,
-:global([data-theme='dark']) .hero-text,
-:global([data-theme='dark']) .section-text,
-:global([data-theme='dark']) .about-text p,
-:global([data-theme='dark']) .service-card p,
-:global([data-theme='dark']) .contact-value,
-:global([data-theme='dark']) .footer-copy,
-:global([data-theme='dark']) .footer-oab {
+:global(html[data-theme='dark'] .nav-link),
+:global(html[data-theme='dark'] .hero-text),
+:global(html[data-theme='dark'] .section-text),
+:global(html[data-theme='dark'] .about-text p),
+:global(html[data-theme='dark'] .service-card p),
+:global(html[data-theme='dark'] .contact-value),
+:global(html[data-theme='dark'] .footer-copy),
+:global(html[data-theme='dark'] .footer-oab) {
   color: #d9d9df;
 }
 
-:global([data-theme='dark']) .hero,
-:global([data-theme='dark']) .about,
-:global([data-theme='dark']) .footer {
+:global(html[data-theme='dark'] .hero),
+:global(html[data-theme='dark'] .about),
+:global(html[data-theme='dark'] .footer) {
   background: #17171c;
 }
 
-:global([data-theme='dark']) .hero-bg-shape,
-:global([data-theme='dark']) .service-icon,
-:global([data-theme='dark']) .check {
+:global(html[data-theme='dark'] .hero-bg-shape),
+:global(html[data-theme='dark'] .service-icon),
+:global(html[data-theme='dark'] .check) {
   background: #30252a;
 }
 
-:global([data-theme='dark']) .stats,
-:global([data-theme='dark']) .contact {
+:global(html[data-theme='dark'] .stats),
+:global(html[data-theme='dark'] .contact) {
   background: #221218;
 }
 
-:global([data-theme='dark']) .services-section {
+:global(html[data-theme='dark'] .services-section) {
   background: #121216;
 }
 
-:global([data-theme='dark']) .service-card,
-:global([data-theme='dark']) .contact-card {
+:global(html[data-theme='dark'] .service-card),
+:global(html[data-theme='dark'] .contact-card) {
   background: #1f1f25;
   color: #ececf2;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
-:global([data-theme='dark']) .contact-card .form-group label {
+:global(html[data-theme='dark'] .contact-card .form-group label) {
   color: #d69da4;
 }
 
-:global([data-theme='dark']) .form-group input,
-:global([data-theme='dark']) .form-group textarea {
+:global(html[data-theme='dark'] .form-group input),
+:global(html[data-theme='dark'] .form-group textarea) {
   border-bottom-color: #4a4a55;
   color: #ececf2;
 }
 
-:global([data-theme='dark']) .form-group input:focus,
-:global([data-theme='dark']) .form-group textarea:focus {
+:global(html[data-theme='dark'] .form-group input:focus),
+:global(html[data-theme='dark'] .form-group textarea:focus) {
   border-bottom-color: #d69da4;
 }
 
-:global([data-theme='dark']) .button-outline {
+:global(html[data-theme='dark'] .button-outline) {
   border-color: #f4dce0;
 }
 
-:global([data-theme='dark']) .button-outline:hover {
+:global(html[data-theme='dark'] .button-outline:hover) {
   background: #f4dce0;
   color: #1f1f25;
 }
 
-:global([data-theme='dark']) .footer {
+:global(html[data-theme='dark'] .footer) {
   border-top-color: #2c2c35;
 }
 
